@@ -3,3 +3,8 @@ extends layout
 block content
   h1 Members Area
   p Welcome to the members area
+  
+
+   if user.usertype=='admin'
+             li(class=(title == 'Members' ? 'active' : ''))
+               a(href='/') Members
