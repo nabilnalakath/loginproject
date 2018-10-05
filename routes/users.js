@@ -21,11 +21,35 @@ router.get('/login', function(req, res, next)
   res.render('login', {title:'Login'});
 });
 
+router.get('/admin', function(req, res, next) 
+{
+  res.redirect('/admin');
+});
+
+router.get('/accounts', function(req, res, next) 
+{
+  res.redirect('/accounts');
+});
+
+router.get('/sales', function(req, res, next) 
+{
+  res.redirect('/sales');
+});
+
+
 router.post('/login',
   passport.authenticate('local',{failureRedirect:'/users/login', failureFlash: 'Invalid username or password'}),
   function(req, res) {
    req.flash('success', 'You are now logged in');
-   res.redirect('/');
+   console.log('User Details:');
+   console.log(req.user);
+   if(req.user.usertype=='admin')
+   res.redirect('/admin');
+   if(req.user.usertype=='accounts')
+   res.redirect('/accounts');
+   if(req.user.usertype=='sales')
+   res.redirect('/sales');
+  
 });
 
 passport.serializeUser(function(user, done) {
