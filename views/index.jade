@@ -6,5 +6,12 @@ block content
   
 
    if user.usertype=='admin'
-             li(class=(title == 'Members' ? 'active' : ''))
-               a(href='/') Members
+             li(class=(title == 'Admin' ? 'active' : ''))
+               a(href='/') Admin
+ if user.usertype=='accounts'
+             li(class=(title == 'Accounts' ? 'active' : ''))
+               a(href='/') accounts
+
+    if user.usertype=='sales'
+             li(class=(title == 'sales' ? 'active' : ''))
+               a(href='/') sales
