@@ -44,6 +44,7 @@ router.post('/login',
    console.log('User Details:');
    console.log(req.user);
    if(req.user.usertype=='admin')
+  //  res.
    res.redirect('/admin');
    if(req.user.usertype=='accounts')
    res.redirect('/accounts');
