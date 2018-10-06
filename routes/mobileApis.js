@@ -91,7 +91,7 @@ router.post('/admin', findToken, (req, res) => {
         })
     } else {
         res.send({
-            status: 2, message: "user does not have admin privilage"
+            status: 2, message: "user does not have admin privilege"
         })
     }
 })
@@ -107,7 +107,7 @@ router.post('/sales', findToken, (req, res) => {
         })
     } else {
         res.send({
-            status: 2, message: "user does not have sales privilage"
+            status: 2, message: "user does not have sales privilege"
         })
     }
 })
@@ -124,7 +124,7 @@ router.post('/accounts', findToken, (req, res) => {
         })
     } else {
         res.send({
-            status: 2, message: "user does not have accounts privilage"
+            status: 2, message: "user does not have accounts privilege"
         })
     }
 })
