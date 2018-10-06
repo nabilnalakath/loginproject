@@ -10,8 +10,7 @@ const User = require('../models/user');
 const findToken = (req, res, next) => {
     const token = req.body.token;
     User.findOne({
-        'tokens.token': token,
-        'tokens.isExpired': false
+        'tokens.token': token  
     }).then(user => {
         if (!user) return res.send({ status: 0, message: "unauthorized" })
         req.user = user;
@@ -107,7 +106,7 @@ router.post('/sales', findToken, (req, res) => {
         })
     } else {
         res.send({
-            status: 2, message: "user does not have sales privilege"
+            status: 2, message: "Sorry,user does not have sales privilege"
         })
     }
 })
@@ -124,7 +123,7 @@ router.post('/accounts', findToken, (req, res) => {
         })
     } else {
         res.send({
-            status: 2, message: "user does not have accounts privilege"
+            status: 2, message: "Sorry, user does not have accounts privilege"
         })
     }
 })
